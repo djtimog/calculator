@@ -100,3 +100,12 @@ function clearAll() {
   input.textContent = number;
   return number;
 }
+
+
+//reset function
+function reset(){
+  number = "";
+  input.textContent = number;
+  result.textContent = number;
+  return number;
+}
