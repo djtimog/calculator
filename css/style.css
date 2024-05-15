@@ -1,0 +1,82 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+.container {
+  max-width: 500px;
+  margin: 100px auto;
+  text-align: center;
+}
+.content {
+  border: 3px solid black;
+  border-radius: 20px;
+  padding: 35px;
+}
+.input_result {
+  border: 2px solid black;
+  border-radius: 5px;
+  text-align: end;
+}
+p {
+  font-weight: 700;
+  font-size: xx-large;
+  padding: 5px;
+  margin: 5px;
+  height: 35px;
+  cursor: not-allowed;
+}
+.input {
+  border-bottom: 1px dashed black;
+}
+button {
+  padding: 20px;
+  border-radius: 25px;
+  font-size: large;
+  margin: 3px;
+  cursor: pointer;
+}
+.numbers {
+  display: inline-table;
+  padding-right: 0px;
+  width: 65%;
+}
+.operators {
+  display: inline-table;
+  padding-left: 0px;
+  width: 35%;
+}
+.num_operator {
+  display: inline-flex;
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 20px;
+}
+button:active {
+  background-color: blue;
+}
+.cancel1 {
+  background-color: red;
+  font-weight: 800;
+  border-radius: 0px;
+  padding: 0px 5px 0px 5px;
+  display: inline-flex;
+}
+.cancel2 {
+  background-color: red;
+  font-weight: 800;
+  border-radius: 0px;
+  padding: 0px 5px 0px 5px;
+  display: inline-flex;
+}
+.canc {
+  text-align: end;
+}
+h1 {
+  margin-bottom: 20px;
+  color: black;
+}
+h5 {
+  color: rgb(183, 0, 255);
+  cursor: help;
+}
