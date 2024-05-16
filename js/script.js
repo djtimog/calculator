@@ -27,36 +27,8 @@ function equalTo() {
   if (number == "") {
     alert("you haven't input a calculation");
   } else {
-    for (let e of number) {
-      if (e == "/") {
-        let position = number.indexOf("/");
-        let x = parseFloat(number.substring(0, position));
-        let y = parseFloat(number.substring(position + 1));
-        number = division(x, y);
-        result.textContent = number;
-      } else if (e == "*") {
-        let position = number.indexOf("*");
-        let x = parseFloat(number.substring(0, position));
-        let y = parseFloat(number.substring(position + 1));
-        number = multiplication(x, y);
-        result.textContent = number;
-      } else if (e == "+") {
-        let position = number.indexOf("+");
-        let x = parseFloat(number.substring(0, position));
-        let y = parseFloat(number.substring(position + 1));
-        number = addition(x, y);
-        result.textContent = number;
-      } else if (e == "-") {
-        let position = number.indexOf("-");
-        let x = parseFloat(number.substring(0, position));
-        let y = parseFloat(number.substring(position + 1));
-        number = subtraction(x, y);
-        result.textContent = number;
-      } else {
-        result.textContent = number;
-      }
-      
-    }console.log(number);
+    number = calculate(number);
+    console.log(number);
   }
   number = "";
   input.textContent = number;
@@ -64,32 +36,80 @@ function equalTo() {
 
 
 //division function
-function division(x, y) {
+function division(position) {
+  let x = parseFloat(number.substring(-1, position));
+  if (isNaN(x)){
+    x = 0;
+  }
+  let y = parseFloat(number.substring(position + 1));
+  if (isNaN(y)){
+    y = 0;
+  }
   return x / y;
 }
 
 
 //multiplication function
-function multiplication(x, y) {
+function multiplication(position) {
+  let x = parseFloat(number.substring(-1, position));
+  if (isNaN(x)){
+    x = 0;
+  }
+  let y = parseFloat(number.substring(position + 1));
+  if (isNaN(y)){
+    y = 0;
+  }
   return x * y;
 }
 
+
 //addition function
-function addition(x, y) {
+function addition(position) {
+  let x = parseFloat(number.substring(-1, position));
+  if (isNaN(x)){
+    x = 0;
+  }
+  let y = parseFloat(number.substring(position + 1));
+  if (isNaN(y)){
+    y = 0;
+  }
   return x + y;
 }
 
 
 //subtraction function
-function subtraction(x, y) {
+function subtraction(position) {
+  let x = parseFloat(number.substring(-1, position));
+  if (isNaN(x)){
+    x = 0;
+  }
+  let y = parseFloat(number.substring(position + 1));
+  if (isNaN(y)){
+    y = 0;
+  }
   return x - y;
 }
 
 
+
+//exponential function
+function exponential(position) {
+  let x = parseFloat(number.substring(-1, position));
+  if (isNaN(x)){
+    x = 0;
+  }
+  let y = parseFloat(number.substring(position + 1));
+  if (isNaN(y)){
+    y = 0;
+  }
+  return x ** y;
+}
+
+
+
 //cancel (X) function
 function cancel() {
-  n = number.length - 1;
-  number = number.replace(number[n], "");
+  number = number.slice(0 , -1);
   input.textContent = number;
   return number;
 }
@@ -109,3 +129,63 @@ function reset(){
   result.textContent = number;
   return number;
 }
+
+
+
+
+//calculate function
+function calculate(number){
+  for (let e of number) {
+    if (e == "/") {
+      let position = number.indexOf("/");
+      number = division(position);
+    } else if (e == "*") {
+      let position = number.indexOf("*");
+      number = multiplication(position);
+    } else if (e == "+") {
+      let position = number.indexOf("+");
+      number = addition(position);
+    } else if (e == "-") {
+      let position = number.indexOf("-");
+      number = subtraction(position);
+    } else if(e == "^"){
+      let position = number.indexOf("^");
+      number = exponential(position);
+    }
+    result.textContent = number;
+  }
+}
+
+
+
+
+//using a try, catch (and throw if there is an error) an error code
+
+
+// function evaluateExpression(expression) {
+//   try {
+//       return Function(`'use strict'; return (${expression})`)();
+//   } catch (error) {
+//       console.error('Error evaluating expression:', error);
+//       return null;
+//   }
+// }
+
+// result.textContent = evaluateExpression(number);
+
+
+
+//using reg exp
+
+
+// function calculateExpression(expression) {
+//   const numbers = expression.match(/[-+]?\d+(\.\d+)?/g) || [];
+//   let total = 0;
+//   for (const num of numbers) {
+//       total += parseFloat(num);
+//   }
+//   return total;
+// }
+
+
+//result.textContent = calculateExpression(number);

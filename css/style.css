@@ -30,45 +30,39 @@ p {
   border-bottom: 1px dashed black;
 }
 button {
-  padding: 20px;
-  border-radius: 25px;
-  font-size: large;
+  height: 60px;
+  font-size: 20px;
   margin: 3px;
   cursor: pointer;
+  width: 60px;
+  background-color: rgb(226, 220, 220);
 }
-.numbers {
-  display: inline-table;
-  padding-right: 0px;
-  width: 65%;
-}
-.operators {
-  display: inline-table;
-  padding-left: 0px;
-  width: 35%;
+button:hover{
+  background-color: rgb(155, 151, 151);
+  color: white;
 }
 .num_operator {
   display: inline-flex;
   border: 2px solid black;
   border-radius: 10px;
   padding: 20px;
+  width: 100%;
 }
-button:active {
-  background-color: blue;
-}
-.cancel1 {
-  background-color: red;
+
+.cancel {
+  background-color: rgb(216, 60, 60);
   font-weight: 800;
   border-radius: 0px;
   padding: 0px 5px 0px 5px;
   display: inline-flex;
+  width: initial;
+  height: initial;
 }
-.cancel2 {
+.cancel:hover{
   background-color: red;
-  font-weight: 800;
-  border-radius: 0px;
-  padding: 0px 5px 0px 5px;
-  display: inline-flex;
+  color: white;
 }
+
 .canc {
   text-align: end;
 }
@@ -79,4 +73,19 @@ h1 {
 h5 {
   color: rgb(183, 0, 255);
   cursor: help;
+}
+.equal-to{
+  color: white;
+  background-color: rgb(37, 165, 37);
+  width: 95%;
+}
+.equal-to:hover{
+  background-color: rgb(11, 85, 11);
+}
+td{
+  padding: 2px 7px 2px 0px;
+}
+table{
+  width: 100%;
+  border-collapse: collapse;
 }

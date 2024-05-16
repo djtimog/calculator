@@ -27,35 +27,78 @@
           </div>
         </div>
         <div class="canc">
-          <button class="cancel1" onclick="cancel()">X</button>
-          <button class="cancel2" onclick="clearAll()">AC</button>
-          <button class="cancel2" onclick="reset()">Reset</button>
+          <button class="cancel" onclick="cancel()">X</button>
+          <button class="cancel" onclick="clearAll()">AC</button>
+          <button class="cancel" onclick="reset()">Reset</button>
         </div>
         <div class="num_operator">
-          <div class="numbers">
-            <button class="nine" onclick="inputValue('9')">9</button>
-            <button class="eight" onclick="inputValue('8')">8</button>
-            <button class="seven" onclick="inputValue('7')">7</button>
-            <button class="six" onclick="inputValue('6')">6</button>
-            <button class="five" onclick="inputValue('5')">5</button>
-            <button class="four" onclick="inputValue('4')">4</button>
-            <button class="three" onclick="inputValue('3')">3</button>
-            <button class="two" onclick="inputValue('2')" >2</button>
-            <button class="one" onclick="inputValue('1')">1</button>
-            <button class="one" onclick="inputValue('0')">0</button>
-            <button class="mutltibuttonly" onclick="inputValue('.')">.</button>
-            <button class="one" onclick="inputValue('00')">00</button>
-            <button class="two" onclick="inputValue('ans')">Ans</button>
-          </div>
-          <div class="operators">
-            <button class="add" onclick="inputValue('+')">+</button>
-            <button class="subtract" onclick="inputValue('-')">-</button>
-            <button class="dot" onclick="inputValue('*')">*</button>
-            <button class="divide" onclick="inputValue('/')">/</button>
-            <button class="equal-to" onclick="equalTo(input.textContent)">
-              =
-            </button>
-          </div>
+          <table>
+            <tr>
+              <td>
+                <button class="nine" onclick="inputValue('9')">9</button>
+              </td>
+              <td>
+                <button class="eight" onclick="inputValue('8')">8</button>
+              </td>
+              <td>
+                <button class="seven" onclick="inputValue('7')">7</button>
+              </td>
+              <td>
+                <button class="add" onclick="inputValue('+')">+</button>
+              </td>
+              <td>
+                <button class="subtract" onclick="inputValue('-')">-</button>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <button class="six" onclick="inputValue('6')">6</button>
+              </td>
+              <td>
+                <button class="five" onclick="inputValue('5')">5</button>
+              </td>
+              <td>
+                <button class="four" onclick="inputValue('4')">4</button>
+              </td>
+              <td>
+                <button class="multiply" onclick="inputValue('*')">*</button>
+              </td>
+              <td>
+                <button class="divide" onclick="inputValue('/')">/</button>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                  <button class="three" onclick="inputValue('3')">3</button>
+              </td>
+              <td>
+                <button class="two" onclick="inputValue('2')">2</button>
+              </td>
+              <td>
+                <button class="one" onclick="inputValue('1')">1</button>
+              </td>
+              <td>
+                <button class="dot" onclick="inputValue('.')">.</button>
+              </td>
+              <td>
+                <button class="exponential" onclick="inputValue('^')">^</button>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <button class="zero" onclick="inputValue('0')">0</button>
+              </td>
+              <td>
+                <button class="doublezero" onclick="inputValue('00')">00</button>
+              </td>
+              <td>
+                <button class="answer" onclick="inputValue('ans')">Ans</button>
+              </td>
+              <td colspan="2">
+                <button class="equal-to" onclick="equalTo()">=</button>
+              </td>
+            </tr>
+          </table>
         </div>
       </div>
     </div>
