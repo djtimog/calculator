@@ -3,30 +3,34 @@ let number = "";
 let result = document.getElementById("result");
 result.textContent = "";
 
-
 //input values function
 function inputValue(s) {
-  if (s == "ans"){
+  if (s == "ans") {
     s = result.textContent;
     number += s;
-  }else{
+  } else {
     number += s;
   }
-  if(number.length <= 20){
+  if (number.length <= 20) {
     input.textContent = number;
-  }else{
+  } else {
     number = "";
     input.textContent = "Maximum of 20 numbers";
   }
   return number;
 }
 
-
 //equalTo (=) function
 function equalTo() {
   if (number == "") {
     alert("you haven't input a calculation");
   } else {
+    for (let e of number) {
+      if (e == "^") {
+        let position = number.indexOf("^");
+        number = exponential(position);
+      }
+    }
     number = evaluateExpression(number);
     result.textContent = number;
   }
@@ -36,11 +40,11 @@ function equalTo() {
 
 function evaluateExpression(expression) {
   try {
-      return Function(`'use strict'; return (${expression})`)();
+    return Function(`'use strict'; return (${expression})`)();
   } catch (error) {
-      console.error('Error evaluating expression:', error);
-      result.textContent = `Error evaluating expression:, ${error}`;
-      return null;
+    console.error("Error evaluating expression:", error);
+    result.textContent = `Error evaluating expression:, ${error}`;
+    return null;
   }
 }
 
@@ -57,7 +61,6 @@ function evaluateExpression(expression) {
 //   return x / y;
 // }
 
-
 // //multiplication function
 // function multiplication(position) {
 //   let x = parseFloat(number.substring(-1, position));
@@ -70,7 +73,6 @@ function evaluateExpression(expression) {
 //   }
 //   return x * y;
 // }
-
 
 // //addition function
 // function addition(position) {
@@ -85,7 +87,6 @@ function evaluateExpression(expression) {
 //   return x + y;
 // }
 
-
 // //subtraction function
 // function subtraction(position) {
 //   let x = parseFloat(number.substring(-1, position));
@@ -99,20 +100,16 @@ function evaluateExpression(expression) {
 //   return x - y;
 // }
 
-
-
-// //exponential function
-// function exponential(position) {
-//   let x = parseFloat(number.substring(-1, position));
-//   let y = parseFloat(number.substring(position + 1));
-//   return x ** y;
-// }
-
-
+//exponential function
+function exponential(position) {
+  let x = parseFloat(number.substring(-1, position));
+  let y = parseFloat(number.substring(position + 1));
+  return x ** y;
+}
 
 //cancel (X) function
 function cancel() {
-  number = number.slice(0 , -1);
+  number = number.slice(0, -1);
   input.textContent = number;
   return number;
 }
@@ -124,53 +121,41 @@ function clearAll() {
   return number;
 }
 
-
 //reset function
-function reset(){
+function reset() {
   number = "";
   input.textContent = number;
   result.textContent = number;
   return number;
 }
 
-
-
-
-//calculate function
+// calculate function
 // function calculate(number){
 //   for (let e of number) {
-//     if (e == "/") {
-//       let position = number.indexOf("/");
-//       number = division(position);
-//     } else if (e == "*") {
-//       let position = number.indexOf("*");
-//       number = multiplication(position);
-//     } else if (e == "+") {
-//       let position = number.indexOf("+");
-//       number = addition(position);
-//     } else if (e == "-") {
-//       let position = number.indexOf("-");
-//       number = subtraction(position);
-//     } else if(e == "^"){
-//       let position = number.indexOf("^");
-//       number = exponential(position);
-//     }
-//     result.textContent = number;
+// //     if (e == "/") {
+// //       let position = number.indexOf("/");
+// //       number = division(position);
+// //     } else if (e == "*") {
+// //       let position = number.indexOf("*");
+// //       number = multiplication(position);
+// //     } else if (e == "+") {
+// //       let position = number.indexOf("+");
+// //       number = addition(position);
+// //     } else if (e == "-") {
+// //       let position = number.indexOf("-");
+// //       number = subtraction(position);
+// //     } else
+//       if(e == "^"){
+//         let position = number.indexOf("^");
+//         number = exponential(position);
+//       }
 //   }
+//   return number;
 // }
-
-
-
 
 //using a try, catch (and throw if there is an error) an error code
 
-
-
-
-
-
 //using reg exp
-
 
 // function calculateExpression(expression) {
 //   const numbers = expression.match(/[-+]?\d+(\.\d+)?/g) || [];
@@ -180,6 +165,5 @@ function reset(){
 //   }
 //   return total;
 // }
-
 
 //result.textContent = calculateExpression(number);
