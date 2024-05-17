@@ -27,83 +27,86 @@ function equalTo() {
   if (number == "") {
     alert("you haven't input a calculation");
   } else {
-    number = calculate(number);
-    console.log(number);
+    number = evaluateExpression(number);
+    result.textContent = number;
   }
   number = "";
   input.textContent = number;
 }
 
-
-//division function
-function division(position) {
-  let x = parseFloat(number.substring(-1, position));
-  if (isNaN(x)){
-    x = 0;
+function evaluateExpression(expression) {
+  try {
+      return Function(`'use strict'; return (${expression})`)();
+  } catch (error) {
+      console.error('Error evaluating expression:', error);
+      result.textContent = `Error evaluating expression:, ${error}`;
+      return null;
   }
-  let y = parseFloat(number.substring(position + 1));
-  if (isNaN(y)){
-    y = 0;
-  }
-  return x / y;
 }
 
-
-//multiplication function
-function multiplication(position) {
-  let x = parseFloat(number.substring(-1, position));
-  if (isNaN(x)){
-    x = 0;
-  }
-  let y = parseFloat(number.substring(position + 1));
-  if (isNaN(y)){
-    y = 0;
-  }
-  return x * y;
-}
-
-
-//addition function
-function addition(position) {
-  let x = parseFloat(number.substring(-1, position));
-  if (isNaN(x)){
-    x = 0;
-  }
-  let y = parseFloat(number.substring(position + 1));
-  if (isNaN(y)){
-    y = 0;
-  }
-  return x + y;
-}
+// //division function
+// function division(position) {
+//   let x = parseFloat(number.substring(-1, position));
+//   if (isNaN(x)){
+//     x = 0;
+//   }
+//   let y = parseFloat(number.substring(position + 1));
+//   if (isNaN(y)){
+//     y = 0;
+//   }
+//   return x / y;
+// }
 
 
-//subtraction function
-function subtraction(position) {
-  let x = parseFloat(number.substring(-1, position));
-  if (isNaN(x)){
-    x = 0;
-  }
-  let y = parseFloat(number.substring(position + 1));
-  if (isNaN(y)){
-    y = 0;
-  }
-  return x - y;
-}
+// //multiplication function
+// function multiplication(position) {
+//   let x = parseFloat(number.substring(-1, position));
+//   if (isNaN(x)){
+//     x = 0;
+//   }
+//   let y = parseFloat(number.substring(position + 1));
+//   if (isNaN(y)){
+//     y = 0;
+//   }
+//   return x * y;
+// }
+
+
+// //addition function
+// function addition(position) {
+//   let x = parseFloat(number.substring(-1, position));
+//   if (isNaN(x)){
+//     x = 0;
+//   }
+//   let y = parseFloat(number.substring(position + 1));
+//   if (isNaN(y)){
+//     y = 0;
+//   }
+//   return x + y;
+// }
+
+
+// //subtraction function
+// function subtraction(position) {
+//   let x = parseFloat(number.substring(-1, position));
+//   if (isNaN(x)){
+//     x = 0;
+//   }
+//   let y = parseFloat(number.substring(position + 1));
+//   if (isNaN(y)){
+//     y = 0;
+//   }
+//   return x - y;
+// }
 
 
 
-//exponential function
-function exponential(position) {
-  let x = parseFloat(number.substring(-1, position));
-  if (isNaN(x)){
-    x = 0;
-  }
-  let y = parseFloat(number.substring(position + 1));
-  if (isNaN(y)){
-    y = 0;
-  }
-  return x ** y;
-}
+// //exponential function
+// function exponential(position) {
+//   let x = parseFloat(number.substring(-1, position));
+//   let y = parseFloat(number.substring(position + 1));
+//   return x ** y;
+// }
 
 
 
@@ -134,27 +137,27 @@ function reset(){
 
 
 //calculate function
-function calculate(number){
-  for (let e of number) {
-    if (e == "/") {
-      let position = number.indexOf("/");
-      number = division(position);
-    } else if (e == "*") {
-      let position = number.indexOf("*");
-      number = multiplication(position);
-    } else if (e == "+") {
-      let position = number.indexOf("+");
-      number = addition(position);
-    } else if (e == "-") {
-      let position = number.indexOf("-");
-      number = subtraction(position);
-    } else if(e == "^"){
-      let position = number.indexOf("^");
-      number = exponential(position);
-    }
-    result.textContent = number;
-  }
-}
+// function calculate(number){
+//   for (let e of number) {
+//     if (e == "/") {
+//       let position = number.indexOf("/");
+//       number = division(position);
+//     } else if (e == "*") {
+//       let position = number.indexOf("*");
+//       number = multiplication(position);
+//     } else if (e == "+") {
+//       let position = number.indexOf("+");
+//       number = addition(position);
+//     } else if (e == "-") {
+//       let position = number.indexOf("-");
+//       number = subtraction(position);
+//     } else if(e == "^"){
+//       let position = number.indexOf("^");
+//       number = exponential(position);
+//     }
+//     result.textContent = number;
+//   }
+// }
 
 
 
@@ -162,16 +165,7 @@ function calculate(number){
 //using a try, catch (and throw if there is an error) an error code
 
 
-// function evaluateExpression(expression) {
-//   try {
-//       return Function(`'use strict'; return (${expression})`)();
-//   } catch (error) {
-//       console.error('Error evaluating expression:', error);
-//       return null;
-//   }
-// }
 
-// result.textContent = evaluateExpression(number);
 
 
 
